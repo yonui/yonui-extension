@@ -4,12 +4,43 @@
   "description": "MDF components extension base class",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:quiet": "npm run lint -- --quiet",
+    "lint:fix": "npm run lint -- --quiet --fix",
+    "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.jsx\\?$' | xargs eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:git",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "repository": {
     "type": "git",
     "url": "git@git.yonyou.com:mdf-5.0/extension.git"
   },
   "author": "Yudu Ban <banyd@yonyou.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@iuap/eslint-config": "^0.1.4",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.1.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.7.2"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0"
+  }
 }
