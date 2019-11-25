@@ -14,9 +14,10 @@ interface designConfigProps {
   label: string
   labelStyle?: string
   isRequired: boolean
-  help?:string
-  props:{}
+  help?: string
+  props: object
 }
+
 /**
  * 设计器适配层(Adapter)props描述
  * name 名称 string类型  必填
@@ -32,6 +33,7 @@ interface Props {
   designConfig?: designConfigProps
   onChange?: (propsName: string, value: string) => object
 }
+
 /**
  * 自定义组件描述
  * name 组件名称,必填
