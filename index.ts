@@ -76,16 +76,23 @@ export class CustomComponent implements Component {
       designConfig: {
         type: MetaTypes.Select,
         isRequired: true,
-        props:{},
+        props:{
+          options:
+          [
+            {value: "top", text: '头部'},
+            {value: "batch", text: '批量'},
+            {value: "inrow", text: '在行中'}
+          ]
+        },
         label: '',
         labelStyle: JSON.stringify({color:'red'}),
         help:''
       }
     }],
-    children:function () {
+    children:function (childNode:object) {
       return true;
     },
-    parent:function () {
+    parent:function (parentNode:object) {
       return true
     }
   }
