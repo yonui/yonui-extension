@@ -2,8 +2,8 @@
   "name": "@mdf/extension",
   "version": "0.0.0",
   "description": "MDF components extension base class",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "build": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
