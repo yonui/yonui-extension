@@ -1,9 +1,11 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
-  extends: ["@iuap"],
+  extends: 'standard-with-typescript',
   env: {
     node: true,
     browser: true
+  },
+  parserOptions: {
+    project: './tsconfig.json'
   },
   settings: {
     react: {
