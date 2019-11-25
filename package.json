@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "description": "MDF components extension base class",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:quiet": "npm run lint -- --quiet",
@@ -21,12 +22,18 @@
     "type": "git",
     "url": "git@git.yonyou.com:mdf-5.0/extension.git"
   },
+  "files": [
+    "README.md",
+    "package.json",
+    "lib"
+  ],
   "author": "Yudu Ban <banyd@yonyou.com>",
   "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@iuap/eslint-config": "^0.1.4",
+    "@types/react": "^16.9.13",
     "@typescript-eslint/parser": "^2.8.0",
     "eslint": "^6.4.0",
     "eslint-config-standard": "^14.1.0",
