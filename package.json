@@ -1,0 +1,15 @@
+{
+  "name": "@mdf/extension",
+  "version": "0.0.0",
+  "description": "MDF components extension base class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.yonyou.com:mdf-5.0/extension.git"
+  },
+  "author": "Yudu Ban <banyd@yonyou.com>",
+  "license": "MIT"
+}
