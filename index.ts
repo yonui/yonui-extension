@@ -56,6 +56,7 @@ export interface ComponentManifest { // 单个组件类型定义
 
 export interface Manifest { // 组件包类型定义
   id: string
+  version: string
   name: string
   description?: string
   dependencies?: {
