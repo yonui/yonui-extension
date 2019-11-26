@@ -20,9 +20,9 @@ interface designConfigProps {
 
 /**
  * 设计器适配层(Adapter)props描述
- * name 名称  
+ * name 名称
  * type 数据类型
- * defaultValue 默认值--可以是数据,也可以是方法 
+ * defaultValue 默认值--可以是数据,也可以是方法
  * showDesign 是否展示在适配层 当showDesign为false,需要配置designConfig字段
  * designConfig 适配层相关配置属性对象
  * change 当值改变时,是否会触发其它字段联动,值为
@@ -55,6 +55,12 @@ export interface ComponentManifest { // 单个组件类型定义
 }
 
 export interface Manifest { // 组件包类型定义
+  id: string
+  name: string
+  description?: string
+  dependencies?: {
+    [dep: string]: string // name: version
+  }
   components: ComponentManifest[]
 }
 
