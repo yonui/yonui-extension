@@ -4,7 +4,7 @@
 @ghost-color:#333;
 @primary-background: transparent;
 @warning-color:#fff;
-@primary-background:red;
+@warning-background:red;
 @set: primary, ghost, warning;
 body {
   width: @bodyWidth;
@@ -12,10 +12,17 @@ body {
 button {
   color: #333;
   background: #fff;
-  each(@btnType, {
-    &.@{value}-btn {
-      color: @value-color;
-      background: @value-background;
-    }
-  });
+  &.primary-btn{
+    .mixin(@primary-color,@primary-background)
+  }
+  &.ghost-btn{
+    .mixin(@ghost-color,@ghost-background)
+  }
+  &.ghost-btn{
+    .mixin(@warning-color,@warning-background)
+  }
+}
+.mixin(@color,@background) {
+  color: @color;
+  background: @background;
 }
