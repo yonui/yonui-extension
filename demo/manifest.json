@@ -1,0 +1,7 @@
+{
+  "name": "建筑行业组件",
+  "description": "专业的建筑行业组件，为您提供完善的前端组件解决方案",
+  "id": "jianzhu",
+  "version": "1.0.0",
+  "index": "./index.tsx"
+}
