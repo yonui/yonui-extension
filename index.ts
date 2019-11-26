@@ -29,7 +29,7 @@ interface designConfigProps {
  */
 interface Props {
   name: string
-  type: any,
+  type: any
   defaultValue?: string
   showDesign: boolean
   designConfig?: designConfigProps
@@ -51,7 +51,7 @@ export interface ComponentManifest { // 单个组件类型定义
   description?: string
   props?: Props[]
   children?: string[] | ((childNode: ComponentManifest) => boolean)
-  parent?:  string[] | ((parentNode: ComponentManifest) => boolean)
+  parent?: string[] | ((parentNode: ComponentManifest) => boolean)
 }
 
 export interface Manifest { // 组件包类型定义
