@@ -1,6 +1,9 @@
+// demo
 import { Component } from '../index'
 import { MetaTypes } from '../types/MetaTypes';
-// demo
+import './index.css'
+import './test.less'
+
 export class ButtonComponent implements Component {
   manifest = {
     name: 'button',//自定义组件名称
