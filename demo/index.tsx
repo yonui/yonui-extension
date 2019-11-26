@@ -63,12 +63,6 @@ export class ButtonComponent implements Component<ButtonProps>  {
   }
 
   render = (props?: ButtonProps) => {
-    if (props) {
-      props.text = '按钮';
-      props.onClick = function(event:object) {
-        console.log(event)
-      };
-    }
     return (<button onClick={props&&props.onClick.bind(this)}>{props&&props.text}</button>);
   }
 }
