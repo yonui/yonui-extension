@@ -1,10 +1,16 @@
 // demo
-import { Component } from '../index'
+import React from 'react';
+import { Component,ComponentManifest, Props } from '../index'
 import { MetaTypes } from '../types/MetaTypes';
 import './index.css'
 import './test.less'
+import { object } from 'prop-types';
 
-export class ButtonComponent implements Component {
+interface ButtonProps {
+  text: string
+  onClick: ((event: Object) => void)
+}
+export class ButtonComponent implements Component<ButtonProps>  {
   manifest = {
     name: 'button',//自定义组件名称
     label: '按钮',//自定义组件文本
@@ -42,15 +48,27 @@ export class ButtonComponent implements Component {
           label: '类型',
           help:''
         },
-        onChange: function () {//字段联动方法
-          return {}
+        onChange: function (props:Props[],propsName:string,value:string) {//字段联动方法
+          props.map((item)=>{
+            if(item.name==='test') {
+             item.defaultValue = value + new Date();
+            }
+          }); 
+          return props;     
         }
       }
     ],
-    children: [],//可放置哪些子组件,以是数组,也可以是方法
-    parent: function (parentNode:object) {//可放置哪些子组件,以是数组,也可以是方法
-      return true
-    }
+    children: ['button'],//可放置哪些子组件,以是数组,也可以是方法
+    parent: ['button']
   }
-  render = () => ''
+
+  render = (props?: ButtonProps) => {
+    if (props) {
+      props.text = '按钮';
+      props.onClick = function(event:object) {
+        console.log(event)
+      };
+    }
+    return (<button onClick={props&&props.onClick.bind(this)}>{props&&props.text}</button>);
+  }
 }

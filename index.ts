@@ -27,13 +27,13 @@ interface designConfigProps {
  * designConfig 适配层相关配置属性对象
  * change 当值改变时,是否会触发其它字段联动,值为
  */
-interface Props {
+export interface Props {
   name: string
   type: any
   defaultValue?: string
   showDesign: boolean
   designConfig?: designConfigProps
-  onChange?: (propsName: string, value: string) => object
+  onChange?: (props:Props[], propsName: string, value: string) => Props[]
 }
 
 /**
