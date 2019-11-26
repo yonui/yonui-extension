@@ -1,5 +1,21 @@
 @bodyWidth: 100%;
-
+@primary-color:#fff;
+@primary-background:blue;
+@ghost-color:#333;
+@primary-background: transparent;
+@warning-color:#fff;
+@primary-background:red;
+@set: primary, ghost, warning;
 body {
   width: @bodyWidth;
 }
+button {
+  color: #333;
+  background: #fff;
+}
+each(@btnType, {
+  .@{value}-btn {
+    color: @value-color;
+    background: @value-background;
+  }
+});
