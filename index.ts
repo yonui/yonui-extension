@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { MetaTypes } from './types/meta';
+import { EditTypes } from './types/meta';
 /**
  * designConfig props的描述 designConfigProps
  * type  适配层的可选视图类型(枚举项)
@@ -10,7 +10,7 @@ import { MetaTypes } from './types/meta';
  * help 提示信息
  */
 interface designConfigProps {
-  type: MetaTypes
+  type: EditTypes
   label: string
   labelStyle?: string
   isRequired?: boolean
@@ -32,12 +32,14 @@ interface designConfigProps {
  * @param propsName 当前组件当前字段的propsName
  * @param value 当前组件当前字段的值
  */
+
+export type FieldType = 'string' | 'number' | 'object' | 'boolean' | 'function' | 'array' | 'any'
 export interface Props {
   name: string
-  type: any
-  defaultValue?: string
+  type: FieldType
+  defaultValue?: any
   value?: string
-  showDesign: boolean
+  showDesign?: boolean
   designConfig?: designConfigProps
   onChange?: (props: Props[], propsName: string, value: string) => Props[]
 }
@@ -76,4 +78,4 @@ export interface Component<P = any> {
   render: (props?: P, engine?: (props: any) => ReactNode) => ReactNode
 }
 
-export { MetaTypes }
+export { EditTypes }

@@ -1,7 +1,7 @@
 /**
  * 适配页面元数据的输入类型定义
  */
-export enum MetaTypes {
+export enum EditTypes {
     /**
      * 下拉选择
      * 配合options属性使用
