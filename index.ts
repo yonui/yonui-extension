@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { MetaTypes } from './types/MetaTypes';
+import { MetaTypes } from './types/meta';
 /**
  * designConfig props的描述 designConfigProps
  * type  适配层的可选视图类型(枚举项)
