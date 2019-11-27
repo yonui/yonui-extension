@@ -75,3 +75,5 @@ export interface Component<P = any> {
   manifest: ComponentManifest
   render: (props?: P, engine?: (props: any) => ReactNode) => ReactNode
 }
+
+export { MetaTypes }
