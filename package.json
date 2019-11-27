@@ -1,6 +1,6 @@
 {
-  "name": "@mdf/extension",
-  "version": "0.0.0",
+  "name": "@metaui/extension",
+  "version": "0.1.0",
   "description": "MDF components extension base class",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
