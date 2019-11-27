@@ -8,10 +8,10 @@
     "prepublishOnly": "npm run build",
     "build": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint . --ext .ts,.tsx,.js,jsx",
     "lint:quiet": "npm run lint -- --quiet",
     "lint:fix": "npm run lint -- --quiet --fix",
-    "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.jsx\\?$' | xargs eslint"
+    "lint:git": "git diff --cached --name-only --diff-filter=ACM | grep '\\.[jt]sx\\?$' | xargs eslint"
   },
   "husky": {
     "hooks": {
@@ -42,6 +42,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^3.1.0",
     "tsc": "^1.20150623.0",

@@ -1,4 +1,4 @@
-import { EditTypes } from './meta';
+import { EditTypes } from './meta'
 import { WrappedNode } from './wrapper'
 /**
  * designConfig props的描述 designConfigProps
