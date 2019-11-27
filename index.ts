@@ -18,6 +18,14 @@ interface designConfigProps {
   props: object
 }
 
+export enum FieldTypes {
+  string = 'string',
+  number = 'number',
+  boolean = 'boolean',
+  function = 'function',
+  object = 'object'
+}
+
 /**
  * 设计器适配层(Adapter)Props描述 Props
  * name 名称
@@ -33,10 +41,9 @@ interface designConfigProps {
  * @param value 当前组件当前字段的值
  */
 
-export type FieldType = 'string' | 'number' | 'object' | 'boolean' | 'function' | 'array' | 'any'
 export interface Props {
   name: string
-  type: FieldType
+  type: FieldTypes
   defaultValue?: any
   value?: string
   showDesign?: boolean
