@@ -26,7 +26,8 @@
   "files": [
     "README.md",
     "package.json",
-    "lib"
+    "lib",
+    "src"
   ],
   "author": "Yudu Ban <banyd@yonyou.com>",
   "license": "MIT",
