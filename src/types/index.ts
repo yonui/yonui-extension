@@ -23,7 +23,8 @@ export enum FieldTypes {
   number = 'number',
   boolean = 'boolean',
   function = 'function',
-  object = 'object'
+  object = 'object',
+  date = 'date'
 }
 
 /**
