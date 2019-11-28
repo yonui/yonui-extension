@@ -6,6 +6,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "prepublishOnly": "npm run build",
+    "postversion": "git push && git push --tags && npm run build && ynpm publish",
     "build": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts,.tsx,.js,jsx",
