@@ -24,7 +24,9 @@ export enum FieldTypes {
   boolean = 'boolean',
   function = 'function',
   object = 'object',
-  date = 'date'
+  date = 'date',
+  action = 'action',
+  child = 'child'
 }
 
 /**
