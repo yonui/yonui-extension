@@ -26,7 +26,8 @@ export enum FieldTypes {
   object = 'object',
   date = 'date',
   action = 'action',
-  child = 'child'
+  child = 'child',
+  array = 'array'
 }
 
 /**
