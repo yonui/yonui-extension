@@ -1,3 +1,3 @@
-# @metaui/extension
+# @libraui/extension
 
-Metaui 扩展基础类型定义
+LibraUI 扩展基础类型定义
