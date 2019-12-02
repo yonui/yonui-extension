@@ -22,7 +22,6 @@ export enum FieldTypes {
   string = 'string',
   number = 'number',
   boolean = 'boolean',
-  function = 'function',
   object = 'object',
   date = 'date',
   action = 'action',
