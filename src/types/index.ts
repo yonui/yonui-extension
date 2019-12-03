@@ -58,6 +58,7 @@ export interface Props {
  * 自定义组件描述 ComponentManifest
  * name 组件名称
  * label 组件文本
+ * type 类型
  * description 组件的相关描述
  * props 设计器适配层(Adapter)需要的一些关键信息
  * children 当前组件可放置哪些子组件,类型可以是数组,也可以是方法
@@ -67,6 +68,7 @@ export interface ComponentManifest { // 单个组件类型定义
   name: string
   label: string
   description?: string
+  type?: string
   props?: Props[]
   children?: string[] | ((childNode: ComponentManifest) => boolean)
   parent?: string[] | ((parentNode: ComponentManifest) => boolean)
