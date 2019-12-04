@@ -37,6 +37,8 @@ function parseProps (origProps: any, engine: any, manifest?: ComponentManifest):
           console.error(error)
           props[name] = null
         }
+      } else if (type === FieldTypes.child) {
+        props[name] = renderChildren(engine, props[name])
       }
     }
   }
@@ -53,8 +55,10 @@ const wrapper: Wrapper = (orig: WrapperChild, options: WrapOptions = {}): Wrappe
     const { nid, uitype } = props || {}
     const divProps = { nid, uitype }
     const { excludeNidAndUiType, manifest } = options
-    const newProps = parseProps(props, engine, manifest)
-    const innerComp = orig(newProps, engine)
+
+    const renderEngine = engine.render ? engine.render : engine
+    const newProps = parseProps(props, renderEngine, manifest)
+    const innerComp = orig(newProps, renderEngine)
     if (excludeNidAndUiType) {
       return innerComp
     }
