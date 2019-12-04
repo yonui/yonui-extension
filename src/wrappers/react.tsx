@@ -69,9 +69,7 @@ const wrapper: Wrapper = (orig: WrapperChild, options: WrapOptions = {}): Wrappe
     if (excludeNidAndUiType) {
       return innerComp
     }
-    return <div {...divProps}>
-      {innerComp}
-    </div>
+    return <div {...divProps}>{innerComp}</div>
   }
 }
 
