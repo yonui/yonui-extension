@@ -21,7 +21,8 @@ const renderChildren = (engine: any, children: any): any => {
       // 如果JSON.parse失败，则有可能是 html 或者 普通文本，两种方式都可以留到后面用dangerouslySetInnerHTML处理
     }
   }
-  return <div dangerouslySetInnerHTML={{ __html: encodeURIComponent(`${children}`) }}/>
+
+  return <div dangerouslySetInnerHTML={{ __html: `${children}` }}/>
 }
 
 function parseProps (origProps: any, engine: any, manifest?: ComponentManifest): any {
