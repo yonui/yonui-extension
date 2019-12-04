@@ -2,10 +2,26 @@ import React from 'react'
 import { Wrapper, WrapperChild, WrapperResult, ComponentManifest, FieldTypes } from '../types'
 
 const renderChildren = (engine: any, children: any): any => {
+  // TODO: 可能会有xss攻击风险，但是暂时先不处理
   if (Array.isArray(children)) {
-    return children.map(engine)
+    return children.map(item => renderChildren(engine, item))
   }
-  return engine(children)
+
+  if (typeof children === 'object') {
+    // 有uitype 说明是ui meta，走engine渲染
+    if (children.uitype) {
+      return engine(children)
+    }
+  } else if (typeof children === 'string') {
+    // 如果是字符串，需要根据情况做不同的处理
+    try {
+      // 如果可以被 JSON.parse 解析，则以object方式继续渲染
+      return renderChildren(engine, JSON.parse(children))
+    } catch (error) {
+      // 如果JSON.parse失败，则有可能是 html 或者 普通文本，两种方式都可以留到后面用dangerouslySetInnerHTML处理
+    }
+  }
+  return <div dangerouslySetInnerHTML={{ __html: encodeURIComponent(`${children}`) }}/>
 }
 
 function parseProps (origProps: any, engine: any, manifest?: ComponentManifest): any {
