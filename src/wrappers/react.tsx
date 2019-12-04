@@ -1,6 +1,5 @@
 import React from 'react'
-import { Wrapper, WrapperChild, WrapperResult } from '../types/wrapper'
-import { ComponentManifest, FieldTypes } from '../types'
+import { Wrapper, WrapperChild, WrapperResult, ComponentManifest, FieldTypes } from '../types'
 
 const renderChildren = (engine: any, children: any): any => {
   if (Array.isArray(children)) {
