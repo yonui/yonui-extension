@@ -25,16 +25,23 @@ function parseProps (origProps: any, engine: any, manifest?: ComponentManifest):
       }
       if (type === FieldTypes.action) {
         // Action(实际是String) => 函数
-        props[name] = (...args: any[]) => props.__dispatch__ ? props.__dispatch__(props[name], ...args) : console.log(`Action: ${props[name]}`)
+        props[name] = (...args: any[]) => {
+          const actionName = props[name]
+          return props.__dispatch__
+            ? props.__dispatch__(props[name], ...args)
+            : console.log(`Action: ${actionName}`)
+        }
       } else if (type === FieldTypes.date) {
         // String => Date
         props[name] = new Date(props[name])
       } else if (type === FieldTypes.array || type === FieldTypes.object) {
         // String => JSON.parse 处理后的object
         try {
-          props[name] = JSON.parse(props[name])
+          if (props[name]) {
+            props[name] = JSON.parse(props[name])
+          }
         } catch (error) {
-          console.error(error)
+          console.warn(error)
           props[name] = null
         }
       } else if (type === FieldTypes.child) {
