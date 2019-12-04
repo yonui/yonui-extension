@@ -41,8 +41,8 @@ function parseProps (origProps: any, engine: any, manifest?: ComponentManifest):
       }
       if (type === FieldTypes.action) {
         // Action(实际是String) => 函数
+        const actionName = `${props[name]}`
         props[name] = (...args: any[]) => {
-          const actionName = props[name]
           return props.__dispatch__
             ? props.__dispatch__(props[name], ...args)
             : console.log(`Action: ${actionName}`)
