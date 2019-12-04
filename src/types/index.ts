@@ -9,7 +9,7 @@ export interface WrapOptions {
   manifest?: ComponentManifest
 }
 
-export type Wrapper<P = any> = (orig: WrapperChild, options: WrapOptions) => WrapperResult
+export type Wrapper<P = any> = (orig: WrapperChild, options?: WrapOptions) => WrapperResult
 
 /**
  * designConfig props的描述 designConfigProps
