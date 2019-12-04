@@ -8,8 +8,8 @@ const renderChildren = (engine: any, children: any): any => {
   }
 
   if (typeof children === 'object') {
-    // 有uitype 说明是ui meta，走engine渲染
-    if (children.uitype) {
+    // 有type说明是ui meta，走engine渲染
+    if (children.type) {
       return engine(children)
     }
   } else if (typeof children === 'string') {
