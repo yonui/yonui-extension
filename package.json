@@ -1,6 +1,6 @@
 {
   "name": "@libraui/extension",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "description": "MDF components extension base class",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
