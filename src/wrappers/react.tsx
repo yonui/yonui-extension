@@ -8,8 +8,15 @@ const renderChildren = (engine: any, children: any): any => {
   }
 
   if (typeof children === 'object') {
+    if (typeof children.$$typeof === 'symbol') {
+      // react组件，直接返回
+      return children
+    } else if (children.type) {
     // 有type说明是ui meta，走engine渲染
-    if (children.type) {
+      if (!engine) {
+        console.warn('Cannot parse ui meta because no engine provides!')
+        return null
+      }
       return engine(children)
     }
   } else if (typeof children === 'string') {
@@ -80,7 +87,7 @@ const wrapper: Wrapper = (orig: WrapperChild, options: WrapOptions = {}): Wrappe
     const divProps = { nid, uitype }
     const { excludeNidAndUiType, manifest } = options
 
-    const renderEngine = engine.render ? engine.render : engine
+    const renderEngine = engine && engine.render ? engine.render : engine
     const newProps = parseProps(props, renderEngine, manifest)
     const innerComp = orig(newProps, renderEngine)
     if (excludeNidAndUiType) {
