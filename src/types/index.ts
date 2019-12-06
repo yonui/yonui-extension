@@ -27,6 +27,7 @@ interface designConfigProps {
   isRequired?: boolean
   help?: string
   props: object
+  disabled?: boolean
 }
 
 export enum FieldTypes {
