@@ -19,6 +19,7 @@ export type Wrapper<P = any> = (orig: WrapperChild, options?: WrapOptions) => Wr
  * isRequired 是否必填
  * props 根据适配器中MetaTypes配置不同的props
  * help 提示信息
+ * disabled 是否禁用
  */
 interface designConfigProps {
   type: EditTypes
