@@ -1,6 +1,6 @@
 import * as React from 'react'
 // import { WrapperChild, WrapperResult, ComponentManifest, FieldTypes } from '../types'
-import { ComponentManifest } from '../types'
+import { ComponentManifest, Props, FieldTypes, EditTypes } from '../types'
 
 // const renderChildren = (engine: any, children: any): any => {
 //   // TODO: 可能会有xss攻击风险，但是暂时先不处理
@@ -97,6 +97,52 @@ export interface WrapOptions {
 //   }
 // }
 
+const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): ComponentManifest => {
+  const styleProp: Props = {
+    name: 'style',
+    type: FieldTypes.object,
+    defaultValue: JSON.stringify({}),
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Json,
+      label: 'style',
+      isRequired: false,
+      help: '自定义样式',
+      props: {}
+    }
+  }
+
+  const classNameProp: Props = {
+    name: 'className',
+    type: FieldTypes.string,
+    defaultValue: '',
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Text,
+      label: 'className',
+      isRequired: false,
+      help: '自定义类名',
+      props: {}
+    }
+  }
+  // add default props in manifest
+  manifest.props = manifest.props || []
+  const props = manifest.props
+  const propsNameSet = new Set(props.map(item => item.name))
+
+  // style
+  if (!propsNameSet.has('style')) {
+    props.push(styleProp)
+  }
+
+  // className
+  if (!propsNameSet.has('className')) {
+    props.push(classNameProp)
+  }
+
+  return manifest
+}
+
 /**
  *
  * @param Comp 要封装的组件
@@ -105,7 +151,7 @@ export interface WrapOptions {
  */
 const wrapper = (Comp: any, manifest: ComponentManifest, options: WrapOptions = {}): any =>
   class Wrapped extends React.Component<any> {
-    static manifest = manifest
+    static manifest = wrapManifest(manifest, options)
 
     renderWithoutWrapper = (): React.ReactNode => {
       return <Comp
