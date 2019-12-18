@@ -67,6 +67,24 @@ export interface Props {
   onChange?: (props: Props[], propsName: string, value: string) => Props[]
 }
 
+export enum DatasourceType {
+  string = 'string',
+  number = 'number'
+}
+
+export interface Datasource {
+  field: string // 路径
+  name: string // 名称
+  type: DatasourceType // 类型
+}
+
+export interface Node {
+  type: string // 控件类型，对应于ComponentManifest中的name
+  title: string // 标题
+  field?: string // 绑定字段
+  children?: Node[] // 子控件列表
+}
+
 /**
  * 自定义组件描述 ComponentManifest
  * name 组件名称
@@ -85,6 +103,7 @@ export interface ComponentManifest { // 单个组件类型定义
   props?: Props[]
   children?: string[] | ((childNode: ComponentManifest) => boolean)
   parent?: string[] | ((parentNode: ComponentManifest) => boolean)
+  onSetDatasource?: (ds: Datasource[], node: Node) => string // return值是error message
 }
 
 export interface Manifest { // 组件包类型定义
