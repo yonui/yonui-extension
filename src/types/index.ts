@@ -48,7 +48,7 @@ export enum FieldTypes {
  * type 数据类型
  * defaultValue 默认值--可以是数据,也可以是方法
  * value 值
- * showDesign 是否展示在适配层 当showDesign为false,需要配置designConfig字段
+ * showDesign 是否展示在适配层 当showDesign为true,需要配置designConfig字段
  * designConfig 适配层相关配置属性对象
  * onChange 当值改变时,触发事件联动的方法,可改变其它配置字段的值
  * onChange方法参数详解
