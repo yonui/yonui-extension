@@ -98,6 +98,9 @@ export interface WrapOptions {
 // }
 
 const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): ComponentManifest => {
+  if (!manifest) {
+    return manifest
+  }
   const styleProp: Props = {
     name: 'style',
     type: FieldTypes.object,
