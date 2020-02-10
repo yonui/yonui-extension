@@ -1,5 +1,5 @@
 {
-  "name": "@libraui/extension",
+  "name": "libraui-extension",
   "version": "0.6.3",
   "description": "MDF components extension base class",
   "main": "./lib/index.js",
