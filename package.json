@@ -8,7 +8,7 @@
     "prepublishOnly": "npm run build",
     "postversion": "git push --follow-tags",
     "build": "rm -rf lib && tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo no test",
     "lint": "eslint . --ext .ts,.tsx,.js,jsx",
     "lint:quiet": "npm run lint -- --quiet",
     "lint:fix": "npm run lint -- --quiet --fix",
