@@ -85,6 +85,21 @@ export interface Node {
   children?: Node[] // 子控件列表
 }
 
+export enum UITable {
+  // BillBase = 'BillBase',
+  // BillEntityBaseList = 'BillEntityBaseList',
+  // BillEntityBase = 'BillEntityBase',
+  // BillCommandList = 'BillCommandList',
+  // BillCommand = 'BillCommand',
+  // BillTemplateBase = 'BillTemplateBase',
+  BillTplGroupBase = 'BillTplGroupBase', // 容器组件
+  // BillToolbar = 'BillToolbar',
+  // BillToolbarItem = 'BillToolbarItem',
+  BillItemBase = 'BillItemBase', // 基础组件
+  // MdfMetaFilter = 'MdfMetaFilter',
+  // MdfMetaFilterItem = 'MdfMetaFilterItem'
+}
+
 /**
  * 自定义组件描述 ComponentManifest
  * name 组件名称
@@ -104,6 +119,7 @@ export interface ComponentManifest { // 单个组件类型定义
   children?: string[] | ((childNode: ComponentManifest) => boolean)
   parent?: string[] | ((parentNode: ComponentManifest) => boolean)
   onSetDatasource?: (ds: Datasource[], node: Node) => string // return值是error message
+  uiTable?: UITable
 }
 
 export interface Manifest { // 组件包类型定义

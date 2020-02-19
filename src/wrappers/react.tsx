@@ -1,6 +1,6 @@
 import * as React from 'react'
 // import { WrapperChild, WrapperResult, ComponentManifest, FieldTypes } from '../types'
-import { ComponentManifest, Props, FieldTypes, EditTypes } from '../types'
+import { ComponentManifest, Props, FieldTypes, EditTypes, UITable } from '../types'
 
 // const renderChildren = (engine: any, children: any): any => {
 //   // TODO: 可能会有xss攻击风险，但是暂时先不处理
@@ -141,6 +141,11 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   // className
   if (!propsNameSet.has('className')) {
     props.push(classNameProp)
+  }
+
+  // 填充默认的 uiTable
+  if (!manifest.uiTable) {
+    manifest.uiTable = UITable.BillItemBase
   }
 
   return manifest
