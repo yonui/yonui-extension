@@ -1,5 +1,5 @@
 {
-  "name": "libraui-extension",
+  "name": "yonui-extension",
   "version": "0.7.3",
   "description": "MDF components extension base class",
   "main": "./lib/index.js",
