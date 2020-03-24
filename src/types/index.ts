@@ -100,6 +100,16 @@ export enum UITable {
   // MdfMetaFilterItem = 'MdfMetaFilterItem'
 }
 
+export enum UIObject {
+  Containers = 'containers', // 容器
+  Controls = 'controls' // 控件
+}
+
+export enum SysProp {
+  DATA_COLLECTION = 'DATA_COLLECTION', // 设置数据源
+  DATA_FIELD = 'DATA_FIELD', // 关联字段
+  ACTION = 'ACTION' // 绑定动作
+}
 /**
  * 自定义组件描述 ComponentManifest
  * name 组件名称
@@ -120,6 +130,10 @@ export interface ComponentManifest { // 单个组件类型定义
   parent?: string[] | ((parentNode: ComponentManifest) => boolean)
   onSetDatasource?: (ds: Datasource[], node: Node) => string // return值是error message
   uiTable?: UITable
+  icon?: string // 组件在设计器中展示的图标
+  hiden?: boolean // 组件在设计器中是否展示
+  uiObject?: UIObject // uiTable改为uiObject
+  systemProperties?: Array<SysProp | undefined>
 }
 
 export interface Manifest { // 组件包类型定义
