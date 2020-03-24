@@ -131,7 +131,7 @@ export interface ComponentManifest { // 单个组件类型定义
   onSetDatasource?: (ds: Datasource[], node: Node) => string // return值是error message
   uiTable?: UITable
   icon?: string // 组件在设计器中展示的图标
-  hiden?: boolean // 组件在设计器中是否展示
+  hidden?: boolean // 组件在设计器中是否展示
   uiObject?: UIObject // uiTable改为uiObject
   systemProperties?: Array<SysProp | undefined>
 }
