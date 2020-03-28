@@ -105,6 +105,11 @@ export enum UIObject {
   Controls = 'controls' // 控件
 }
 
+export enum ModelProps {
+  GridModel = 'GridModel',
+  SimpleModel = 'SimpleModel'
+}
+
 export enum SysProp {
   DATA_COLLECTION = 'DATA_COLLECTION', // 设置数据源
   DATA_FIELD = 'DATA_FIELD', // 关联字段
@@ -134,6 +139,7 @@ export interface ComponentManifest { // 单个组件类型定义
   hidden?: boolean // 组件在设计器中是否展示
   uiObject?: UIObject // uiTable改为uiObject
   systemProperties?: Array<SysProp | undefined>
+  model?: ModelProps
 }
 
 export interface Manifest { // 组件包类型定义
