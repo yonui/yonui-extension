@@ -115,6 +115,20 @@ export enum SysProp {
   DATA_FIELD = 'DATA_FIELD', // 关联字段
   ACTION = 'ACTION' // 绑定动作
 }
+
+export enum SysProps {
+  DATA_COLLECTION = 'DATA_COLLECTION', // 设置数据源
+  DATA_FIELD = 'DATA_FIELD', // 关联字段
+  ACTION = 'ACTION' // 绑定动作
+}
+
+export enum TypeProps {
+  BasicControls = 'basicControls',
+  BusinessControls = 'businessControls',
+  DataContainer = 'dataContainer',
+  LayoutContainer = 'layoutContainer',
+  OperationBar = 'operationBar'
+}
 /**
  * 自定义组件描述 ComponentManifest
  * name 组件名称
@@ -129,7 +143,7 @@ export interface ComponentManifest { // 单个组件类型定义
   name: string
   label: string
   description?: string
-  type?: string
+  type?: TypeProps | string
   props?: Props[]
   children?: string[] | ((childNode: ComponentManifest) => boolean)
   parent?: string[] | ((parentNode: ComponentManifest) => boolean)
@@ -138,7 +152,7 @@ export interface ComponentManifest { // 单个组件类型定义
   icon?: string // 组件在设计器中展示的图标
   hidden?: boolean // 组件在设计器中是否展示
   uiObject?: UIObject // uiTable改为uiObject
-  systemProperties?: Array<SysProp | undefined>
+  systemProperties?: Array<SysProp | SysProps | undefined>
   model?: ModelProps
 }
 
