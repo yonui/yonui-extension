@@ -110,16 +110,11 @@ export enum ModelProps {
   SimpleModel = 'SimpleModel'
 }
 
-export enum SysProp {
-  DATA_COLLECTION = 'DATA_COLLECTION', // 设置数据源
-  DATA_FIELD = 'DATA_FIELD', // 关联字段
-  ACTION = 'ACTION' // 绑定动作
-}
-
 export enum SysProps {
   DATA_COLLECTION = 'DATA_COLLECTION', // 设置数据源
   DATA_FIELD = 'DATA_FIELD', // 关联字段
-  ACTION = 'ACTION' // 绑定动作
+  ACTION = 'ACTION', // 绑定动作
+  CHILDREN_FIELD = 'CHILDREN_FIELD'
 }
 
 export enum TypeProps {
@@ -152,7 +147,7 @@ export interface ComponentManifest { // 单个组件类型定义
   icon?: string // 组件在设计器中展示的图标
   hidden?: boolean // 组件在设计器中是否展示
   uiObject?: UIObject // uiTable改为uiObject
-  systemProperties?: Array<SysProp | SysProps | undefined>
+  systemProperties?: Array<SysProps | undefined>
   model?: ModelProps
 }
 
