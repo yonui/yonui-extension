@@ -129,7 +129,10 @@ export enum ExtensionProps {
   bIsNull = 'bIsNull',
   bMustSelect = 'bMustSelect',
   isExport = 'isExport',
-  bVmExclude = 'bVmExclude'
+  bVmExclude = 'bVmExclude',
+  disabled = 'disabled',
+  splitLine = 'splitLine',
+  singleLine = 'singleLine'
 }
 /**
  * 自定义组件描述 ComponentManifest

@@ -2,6 +2,106 @@ import * as React from 'react'
 // import { WrapperChild, WrapperResult, ComponentManifest, FieldTypes } from '../types'
 import { ComponentManifest, Props, FieldTypes, EditTypes, UITable, ExtensionProps } from '../types'
 
+const bIsNullProps: Props = {
+  name: 'bIsNull',
+  type: FieldTypes.boolean,
+  defaultValue: false,
+  showDesign: true,
+  designConfig: {
+    type: EditTypes.Bool,
+    isRequired: true,
+    props: {},
+    label: '允许为空'
+  }
+}
+const bMustSelectProps: Props = {
+  name: 'bMustSelect',
+  type: FieldTypes.boolean,
+  defaultValue: false,
+  showDesign: true,
+  designConfig: {
+    type: EditTypes.Bool,
+    isRequired: true,
+    props: {},
+    label: '是否必传'
+  }
+}
+const isExportProps: Props = {
+  name: 'isExport',
+  type: FieldTypes.boolean,
+  defaultValue: true,
+  showDesign: true,
+  designConfig: {
+    type: EditTypes.Bool,
+    isRequired: true,
+    props: {},
+    label: '允许导出'
+  }
+}
+const bVmExcludeProps: Props = {
+  name: 'bVmExclude',
+  type: FieldTypes.number,
+  defaultValue: 0,
+  showDesign: true,
+  designConfig: {
+    type: EditTypes.Select,
+    isRequired: true,
+    props: {
+      options: [
+        { text: '默认', value: 0 },
+        { text: '只存储不显示', value: 1 },
+        { text: '只显示不存储', value: 2 }
+      ]
+    },
+    label: '数据形态'
+  }
+}
+const disabledProps: Props = {
+  name: 'disabled',
+  type: FieldTypes.boolean,
+  defaultValue: false,
+  showDesign: true,
+  designConfig: {
+    type: EditTypes.Bool,
+    isRequired: true,
+    props: {},
+    label: '是否禁用',
+    help: '此项为禁用整个选项组'
+  }
+}
+const singleLineProps: Props = {
+  name: 'singleLine',
+  type: FieldTypes.boolean,
+  defaultValue: false,
+  showDesign: true,
+  designConfig: {
+    type: EditTypes.Bool,
+    isRequired: true,
+    props: {},
+    label: '单行展示'
+  }
+}
+const splitLineProps: Props = {
+  name: 'splitLine',
+  type: FieldTypes.boolean,
+  defaultValue: true,
+  showDesign: true,
+  designConfig: {
+    type: EditTypes.Bool,
+    isRequired: true,
+    props: {},
+    label: '分割线'
+  }
+}
+const ExtensionPropsMap = {
+  [ExtensionProps.bIsNull]: bIsNullProps,
+  [ExtensionProps.bMustSelect]: bMustSelectProps,
+  [ExtensionProps.bVmExclude]: bVmExcludeProps,
+  [ExtensionProps.disabled]: disabledProps,
+  [ExtensionProps.isExport]: isExportProps,
+  [ExtensionProps.singleLine]: singleLineProps,
+  [ExtensionProps.splitLine]: splitLineProps
+}
 // const renderChildren = (engine: any, children: any): any => {
 //   // TODO: 可能会有xss攻击风险，但是暂时先不处理
 //   if (Array.isArray(children)) {
@@ -142,82 +242,9 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   const propsNameSet = new Set(props.map(item => item.name))
 
   const extension = manifest.extension
-  const bIsNullProps: Props = {
-    name: 'bIsNull',
-    type: FieldTypes.boolean,
-    defaultValue: false,
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Bool,
-      isRequired: true,
-      props: {},
-      label: '允许为空'
-    }
-  }
-  const bMustSelectProps: Props = {
-    name: 'bMustSelect',
-    type: FieldTypes.boolean,
-    defaultValue: false,
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Bool,
-      isRequired: true,
-      props: {},
-      label: '是否必传'
-    }
-  }
-  const isExportProps: Props = {
-    name: 'isExport',
-    type: FieldTypes.boolean,
-    defaultValue: true,
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Bool,
-      isRequired: true,
-      props: {},
-      label: '允许导出'
-    }
-  }
-  const bVmExcludeProps: Props = {
-    name: 'bVmExclude',
-    type: FieldTypes.number,
-    defaultValue: 0,
-    showDesign: true,
-    designConfig: {
-      type: EditTypes.Select,
-      isRequired: true,
-      props: {
-        options: [
-          { text: '默认', value: 0 },
-          { text: '只存储不显示', value: 1 },
-          { text: '只显示不存储', value: 2 }
-        ]
-      },
-      label: '数据形态'
-    }
-  }
-
   if (extension) {
     extension.forEach(item => {
-      switch (item) {
-        case ExtensionProps.bIsNull: {
-          props.push(bIsNullProps)
-          break
-        }
-        case ExtensionProps.bMustSelect: {
-          props.push(bMustSelectProps)
-          break
-        }
-        case ExtensionProps.isExport: {
-          props.push(isExportProps)
-          break
-        }
-        case ExtensionProps.bVmExclude: {
-          props.push(bVmExcludeProps)
-          break
-        }
-        default: break
-      }
+      props.push(ExtensionPropsMap[item])
     })
   }
 
