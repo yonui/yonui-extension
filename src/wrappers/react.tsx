@@ -65,8 +65,7 @@ const disabledProps: Props = {
     type: EditTypes.Bool,
     isRequired: true,
     props: {},
-    label: '是否禁用',
-    help: '此项为禁用整个选项组'
+    label: '禁用'
   }
 }
 const singleLineProps: Props = {
@@ -246,6 +245,7 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
     extension.forEach(item => {
       props.push(ExtensionPropsMap[item])
     })
+    delete manifest.extension
   }
 
   // style
