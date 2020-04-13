@@ -141,6 +141,86 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   const props = manifest.props
   const propsNameSet = new Set(props.map(item => item.name))
 
+  const extension = manifest.extension
+  const bIsNullProps: Props = {
+    name: 'bIsNull',
+    type: FieldTypes.boolean,
+    defaultValue: false,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Bool,
+      isRequired: true,
+      props: {},
+      label: '允许为空'
+    }
+  }
+  const bMustSelectProps: Props = {
+    name: 'bMustSelect',
+    type: FieldTypes.boolean,
+    defaultValue: false,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Bool,
+      isRequired: true,
+      props: {},
+      label: '是否必传'
+    }
+  }
+  const isExportProps: Props = {
+    name: 'isExport',
+    type: FieldTypes.boolean,
+    defaultValue: true,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Bool,
+      isRequired: true,
+      props: {},
+      label: '允许导出'
+    }
+  }
+  const bVmExcludeProps: Props = {
+    name: 'bVmExclude',
+    type: FieldTypes.number,
+    defaultValue: 0,
+    showDesign: true,
+    designConfig: {
+      type: EditTypes.Select,
+      isRequired: true,
+      props: {
+        options: [
+          { text: '默认', value: 0 },
+          { text: '只存储不显示', value: 1 },
+          { text: '只显示不存储', value: 2 }
+        ]
+      },
+      label: '数据形态'
+    }
+  }
+
+  if (extension) {
+    extension.forEach(item => {
+      switch (item) {
+        case 'bIsNull': {
+          props.push(bIsNullProps)
+          break
+        }
+        case 'bMustSelect': {
+          props.push(bMustSelectProps)
+          break
+        }
+        case 'isExport': {
+          props.push(isExportProps)
+          break
+        }
+        case 'bVmExclude': {
+          props.push(bVmExcludeProps)
+          break
+        }
+        default: break
+      }
+    })
+  }
+
   // style
   if (!propsNameSet.has('style')) {
     props.push(styleProp)

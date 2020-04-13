@@ -149,6 +149,7 @@ export interface ComponentManifest { // 单个组件类型定义
   uiObject?: UIObject // uiTable改为uiObject
   systemProperties?: Array<SysProps | undefined>
   model?: ModelProps
+  extension?: string[] // 拓展字段
 }
 
 export interface Manifest { // 组件包类型定义
