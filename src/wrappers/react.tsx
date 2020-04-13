@@ -1,6 +1,6 @@
 import * as React from 'react'
 // import { WrapperChild, WrapperResult, ComponentManifest, FieldTypes } from '../types'
-import { ComponentManifest, Props, FieldTypes, EditTypes, UITable } from '../types'
+import { ComponentManifest, Props, FieldTypes, EditTypes, UITable, ExtensionProps } from '../types'
 
 // const renderChildren = (engine: any, children: any): any => {
 //   // TODO: 可能会有xss攻击风险，但是暂时先不处理
@@ -200,19 +200,19 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   if (extension) {
     extension.forEach(item => {
       switch (item) {
-        case 'bIsNull': {
+        case ExtensionProps.bIsNull: {
           props.push(bIsNullProps)
           break
         }
-        case 'bMustSelect': {
+        case ExtensionProps.bMustSelect: {
           props.push(bMustSelectProps)
           break
         }
-        case 'isExport': {
+        case ExtensionProps.isExport: {
           props.push(isExportProps)
           break
         }
-        case 'bVmExclude': {
+        case ExtensionProps.bVmExclude: {
           props.push(bVmExcludeProps)
           break
         }

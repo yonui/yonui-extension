@@ -124,6 +124,13 @@ export enum TypeProps {
   LayoutContainer = 'layoutContainer',
   OperationBar = 'operationBar'
 }
+
+export enum ExtensionProps {
+  bIsNull = 'bIsNull',
+  bMustSelect = 'bMustSelect',
+  isExport = 'isExport',
+  bVmExclude = 'bVmExclude'
+}
 /**
  * 自定义组件描述 ComponentManifest
  * name 组件名称
@@ -149,7 +156,7 @@ export interface ComponentManifest { // 单个组件类型定义
   uiObject?: UIObject // uiTable改为uiObject
   systemProperties?: Array<SysProps | undefined>
   model?: ModelProps
-  extension?: string[] // 拓展字段
+  extension?: ExtensionProps[] // 拓展字段
 }
 
 export interface Manifest { // 组件包类型定义
