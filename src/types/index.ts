@@ -107,7 +107,9 @@ export enum UIObject {
 
 export enum ModelProps {
   GridModel = 'GridModel',
-  SimpleModel = 'SimpleModel'
+  SimpleModel = 'SimpleModel',
+  ListModel = 'ListModel',
+  ReferModel = 'ReferModel'
 }
 
 export enum SysProps {
