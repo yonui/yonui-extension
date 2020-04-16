@@ -135,7 +135,10 @@ export enum ExtensionProps {
   disabled = 'disabled',
   splitLine = 'splitLine',
   singleLine = 'singleLine',
-  required = 'required'
+  required = 'required',
+  bCheck = 'bCheck',
+  formula = 'formula',
+  cStyle = 'cStyle'
 }
 /**
  * 自定义组件描述 ComponentManifest

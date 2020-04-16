@@ -105,6 +105,41 @@ const requiredProps: Props = {
     label: '必填'
   }
 }
+
+const bCheckProps: Props = {
+  name: 'bCheck',
+  type: FieldTypes.boolean,
+  defaultValue: false,
+  showDesign: false,
+  designConfig: {
+    type: EditTypes.Bool,
+    isRequired: false,
+    props: {},
+    label: '是否校验'
+  }
+}
+const cStyleProps: Props = {
+  name: 'cStyle',
+  type: FieldTypes.object,
+  showDesign: false,
+  designConfig: {
+    type: EditTypes.Json,
+    isRequired: false,
+    props: {},
+    label: '拓展配置'
+  }
+}
+const formulaProps: Props = {
+  name: 'formula',
+  type: FieldTypes.string,
+  showDesign: false,
+  designConfig: {
+    type: EditTypes.Text,
+    isRequired: false,
+    props: {},
+    label: '计算公式'
+  }
+}
 const ExtensionPropsMap = {
   [ExtensionProps.bIsNull]: bIsNullProps,
   [ExtensionProps.bMustSelect]: bMustSelectProps,
@@ -113,7 +148,10 @@ const ExtensionPropsMap = {
   [ExtensionProps.isExport]: isExportProps,
   [ExtensionProps.singleLine]: singleLineProps,
   [ExtensionProps.splitLine]: splitLineProps,
-  [ExtensionProps.required]: requiredProps
+  [ExtensionProps.required]: requiredProps,
+  [ExtensionProps.bCheck]: bCheckProps,
+  [ExtensionProps.formula]: formulaProps,
+  [ExtensionProps.cStyle]: cStyleProps
 }
 // const renderChildren = (engine: any, children: any): any => {
 //   // TODO: 可能会有xss攻击风险，但是暂时先不处理
