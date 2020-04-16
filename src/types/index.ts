@@ -134,7 +134,8 @@ export enum ExtensionProps {
   bVmExclude = 'bVmExclude',
   disabled = 'disabled',
   splitLine = 'splitLine',
-  singleLine = 'singleLine'
+  singleLine = 'singleLine',
+  required = 'required'
 }
 /**
  * 自定义组件描述 ComponentManifest

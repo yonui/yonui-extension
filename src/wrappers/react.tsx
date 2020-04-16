@@ -92,6 +92,19 @@ const splitLineProps: Props = {
     label: '分割线'
   }
 }
+
+const requiredProps: Props = {
+  name: 'required',
+  type: FieldTypes.boolean,
+  defaultValue: false,
+  showDesign: true,
+  designConfig: {
+    type: EditTypes.Bool,
+    isRequired: true,
+    props: {},
+    label: '必填'
+  }
+}
 const ExtensionPropsMap = {
   [ExtensionProps.bIsNull]: bIsNullProps,
   [ExtensionProps.bMustSelect]: bMustSelectProps,
@@ -99,7 +112,8 @@ const ExtensionPropsMap = {
   [ExtensionProps.disabled]: disabledProps,
   [ExtensionProps.isExport]: isExportProps,
   [ExtensionProps.singleLine]: singleLineProps,
-  [ExtensionProps.splitLine]: splitLineProps
+  [ExtensionProps.splitLine]: splitLineProps,
+  [ExtensionProps.required]: requiredProps
 }
 // const renderChildren = (engine: any, children: any): any => {
 //   // TODO: 可能会有xss攻击风险，但是暂时先不处理
