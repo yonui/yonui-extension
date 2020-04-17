@@ -343,7 +343,7 @@ class ErrorBoundary extends React.Component<any, ErrorBoundaryState> {
   render () {
     if (this.state.hasError) {
       // 你可以自定义降级后的 UI 并渲染
-      return <h1>Something went wrong.</h1>
+      return <div>Something went wrong.</div>
     }
     return this.props.children
   }
