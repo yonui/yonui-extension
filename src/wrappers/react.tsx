@@ -230,6 +230,7 @@ const ExtensionPropsMap = {
 
 export interface WrapOptions {
   excludeNidAndUiType?: boolean
+  errorBoundary?: boolean
 }
 
 // function wrapper (orig: WrapperChild, options: WrapOptions = {}): WrapperResult {
@@ -318,6 +319,36 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   return manifest
 }
 
+interface ErrorBoundaryState {
+  hasError: boolean
+}
+class ErrorBoundary extends React.Component<any, ErrorBoundaryState> {
+  constructor (props: any) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  static getDerivedStateFromError = () => {
+    return { hasError: true }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  componentDidCatch = (error: any, errorInfo: any) => {
+    // 你同样可以将错误日志上报给服务器
+    console.error(error, errorInfo)
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  render () {
+    if (this.state.hasError) {
+      // 你可以自定义降级后的 UI 并渲染
+      return <h1>Something went wrong.</h1>
+    }
+    return this.props.children
+  }
+}
+
 /**
  *
  * @param Comp 要封装的组件
@@ -329,7 +360,11 @@ const wrapper = (Comp: any, manifest: ComponentManifest, options: WrapOptions = 
     static manifest = wrapManifest(manifest, options)
 
     renderWithoutWrapper = (): React.ReactNode => {
-      return <Comp
+      return options.errorBoundary ? <ErrorBoundary>
+        <Comp
+          {...this.props}
+        />
+      </ErrorBoundary> : <Comp
         {...this.props}
       />
     }
