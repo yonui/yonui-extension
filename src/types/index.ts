@@ -166,6 +166,7 @@ export interface ComponentManifest { // 单个组件类型定义
   systemProperties?: Array<SysProps | undefined>
   model?: ModelProps
   extension?: ExtensionProps[] // 拓展字段
+  propertyMap?: Array<{[key: string ]: string}> // 属性映射
 }
 
 export interface Manifest { // 组件包类型定义
