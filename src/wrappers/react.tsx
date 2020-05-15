@@ -231,6 +231,7 @@ const ExtensionPropsMap = {
 export interface WrapOptions {
   excludeNidAndUiType?: boolean
   errorBoundary?: boolean
+  icon?: string
 }
 
 // function wrapper (orig: WrapperChild, options: WrapOptions = {}): WrapperResult {
@@ -310,7 +311,10 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   if (!propsNameSet.has('className')) {
     props.push(classNameProp)
   }
-
+  const { icon } = options
+  if (icon) {
+    manifest.icon = icon
+  }
   // 填充默认的 uiTable
   if (!manifest.uiTable) {
     manifest.uiTable = UITable.BillItemBase
