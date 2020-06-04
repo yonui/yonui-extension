@@ -109,7 +109,8 @@ export enum ModelProps {
   GridModel = 'GridModel',
   SimpleModel = 'SimpleModel',
   ListModel = 'ListModel',
-  ReferModel = 'ReferModel'
+  ReferModel = 'ReferModel',
+  VM = 'VM'
 }
 
 export enum SysProps {
@@ -167,6 +168,8 @@ export interface ComponentManifest { // 单个组件类型定义
   model?: ModelProps
   extension?: ExtensionProps[] // 拓展字段
   propertyMap?: {[key: string ]: string} // 属性映射
+  fieldKey?: string
+  fieldSetter?: string
 }
 
 export interface Manifest { // 组件包类型定义
