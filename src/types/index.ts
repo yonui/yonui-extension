@@ -141,6 +141,8 @@ export enum ExtensionProps {
   formula = 'formula',
   cStyle = 'cStyle'
 }
+
+type transformerType = Array<string | Function | [string, object] | [Function, object]>
 /**
  * 自定义组件描述 ComponentManifest
  * name 组件名称
@@ -170,6 +172,7 @@ export interface ComponentManifest { // 单个组件类型定义
   propertyMap?: {[key: string ]: string} // 属性映射
   fieldKey?: string
   fieldSetter?: string
+  transformers?: transformerType
 }
 
 export interface Manifest { // 组件包类型定义
