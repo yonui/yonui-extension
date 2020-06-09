@@ -143,6 +143,8 @@ export enum ExtensionProps {
 }
 
 type transformerType = Array<string | Function | [string, object] | [Function, object]>
+
+interface event {name: string, desc: string}
 /**
  * 自定义组件描述 ComponentManifest
  * name 组件名称
@@ -173,6 +175,7 @@ export interface ComponentManifest { // 单个组件类型定义
   fieldKey?: string
   fieldSetter?: string
   transformers?: transformerType
+  events?: event[]
 }
 
 export interface Manifest { // 组件包类型定义
