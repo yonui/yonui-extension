@@ -1,6 +1,6 @@
 {
   "name": "yonui-extension",
-  "version": "0.7.24",
+  "version": "0.7.25",
   "description": "MDF components extension base class",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
