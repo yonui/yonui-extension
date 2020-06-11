@@ -121,11 +121,17 @@ export enum SysProps {
 }
 
 export enum TypeProps {
-  BasicControls = 'basicControls',
-  BusinessControls = 'businessControls',
-  DataContainer = 'dataContainer',
+  // BasicControls = 'basicControls',
+  // BusinessControls = 'businessControls',
+  // DataContainer = 'dataContainer',
+  // LayoutContainer = 'layoutContainer',
+  // OperationBar = 'operationBar',
   LayoutContainer = 'layoutContainer',
-  OperationBar = 'operationBar'
+  DataContainer = 'dataContainer',
+  FormControls = 'formControls',
+  FunctionalControls = 'functionalControls',
+  BusinessControls = 'businessControls',
+  InterfaceControls = 'interfaceControls'
 }
 
 export enum ExtensionProps {
