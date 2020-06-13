@@ -121,13 +121,13 @@ export enum SysProps {
 }
 
 export enum TypeProps {
-  // BasicControls = 'basicControls',
   // BusinessControls = 'businessControls',
   // DataContainer = 'dataContainer',
   // LayoutContainer = 'layoutContainer',
   // OperationBar = 'operationBar',
   LayoutContainer = 'layoutContainer',
   DataContainer = 'dataContainer',
+  BasicControls = 'basicControls',
   FormControls = 'formControls',
   FunctionalControls = 'functionalControls',
   BusinessControls = 'businessControls',
@@ -150,7 +150,7 @@ export enum ExtensionProps {
 
 type transformerType = Array<string | Function | [string, object] | [Function, object]>
 
-interface event {name: string, desc: string}
+interface event {name: string, des: string}
 /**
  * 自定义组件描述 ComponentManifest
  * name 组件名称
