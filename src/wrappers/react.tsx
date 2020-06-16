@@ -254,27 +254,17 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   if (!manifest) {
     return manifest
   }
-  // const styleProp: Props = {
-  //   name: 'style',
-  //   type: FieldTypes.action,
-  //   showDesign: true,
-  //   designConfig: {
-  //     label: '公共样式',
-  //     type: EditTypes.IframeModal,
-  //     help: '',
-  //     props: {
-  //       caption: '公共样式',
-  //       iframeUrl: '/CssSelect',
-  //       iframeId: 'mobileCssIframeModal',
-  //       iframeContext: 'mobileCssIframeModal',
-  //       addText: '新增样式',
-  //       editText: '修改样式',
-  //       message: true,
-  //       isRequired: false,
-  //       footer: true
-  //     }
-  //   }
-  // }
+  const styleProp: Props = {
+    name: 'style',
+    type: FieldTypes.object,
+    showDesign: false,
+    designConfig: {
+      label: '公共样式',
+      type: EditTypes.IframeModal,
+      help: '',
+      props: {}
+    }
+  }
 
   // const classNameProp: Props = {
   //   name: 'className',
@@ -292,7 +282,7 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   // add default props in manifest
   manifest.props = manifest.props || []
   const props = manifest.props
-  // const propsNameSet = new Set(props.map(item => item.name))
+  const propsNameSet = new Set(props.map(item => item.name))
 
   const extension = manifest.extension
   if (extension) {
@@ -303,9 +293,9 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   }
 
   // style
-  // if (!propsNameSet.has('style')) {
-  //   props.push(styleProp)
-  // }
+  if (!propsNameSet.has('style')) {
+    props.push(styleProp)
+  }
 
   // className
   // if (!propsNameSet.has('className')) {
