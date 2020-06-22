@@ -5,7 +5,7 @@ import { ComponentManifest, Props, FieldTypes, EditTypes, UITable, ExtensionProp
 const bIsNullProps: Props = {
   name: 'bIsNull',
   type: FieldTypes.boolean,
-  defaultValue: false,
+  defaultValue: true,
   showDesign: true,
   designConfig: {
     type: EditTypes.Bool,
