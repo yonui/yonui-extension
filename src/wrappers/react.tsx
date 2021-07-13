@@ -309,6 +309,18 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
   if (!manifest.uiTable) {
     manifest.uiTable = UITable.BillItemBase
   }
+  // 填充默认的 onLoad
+  if (manifest.events) {
+    manifest.events.push({
+      name: 'onLoadComponent',
+      des: '加载'
+    })
+  } else {
+    manifest.events = [{
+      name: 'onLoadComponent',
+      des: '加载'
+    }]
+  }
 
   return manifest
 }
