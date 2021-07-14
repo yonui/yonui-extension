@@ -310,11 +310,14 @@ const wrapManifest = (manifest: ComponentManifest, options: WrapOptions = {}): C
     manifest.uiTable = UITable.BillItemBase
   }
   // 填充默认的 onLoad
-  if (manifest.events && manifest.events.findIndex((v)=>v?.name == 'onLoadComponent') == -1) {
-    manifest.events.push({
-      name: 'onLoadComponent',
-      des: '加载'
-    })
+
+  if (manifest.events) {
+    if (manifest.events.findIndex((v)=>v?.name == 'onLoadComponent') == -1) {
+      manifest.events.push({
+        name: 'onLoadComponent',
+        des: '加载'
+      })
+    }
   } else {
     manifest.events = [{
       name: 'onLoadComponent',
